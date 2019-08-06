@@ -24,12 +24,22 @@
           `audio[data-key="${event.keyCode}"]`,
         );
         const key = document.querySelector(`div[data-key="${event.keyCode}"]`);
-        if (!audio) return; // stop the function from running, because the chosen letter does not trigger any sound
-        key.classList.add('playing');
-        audio.currentTime = 0; // rewind the sound to the start, to as soon as a key is pressed (can be the same key)
+        if (!audio) return; // stop the function from running if the chosen letter does not trigger any sound
+        key.classList.add('playing'); // add the playing css class
+        audio.currentTime = 0; // rewind the sound to the start as soon as a key is pressed (can be the same key)
         audio.play();
         console.log(audio);
       }
+
+      function removeTransition(event) {
+        if (event.propertyName !== 'transform') return; // skip the function if it's not a transform
+        this.classList.remove('playing'); // remove the playing css class
+      }
+
+      const keys = document.querySelectorAll('.key');
+      keys.forEach(key =>
+        key.addEventListener('transitionend', removeTransition),
+      );
 
       //trigger the playSound function when the 'keydown' event occurs
       window.addEventListener('keydown', playSound);
