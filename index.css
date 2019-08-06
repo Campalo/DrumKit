@@ -16,16 +16,16 @@ html {
 .keys {
   display: flex;
   flex: 1;
-  min-height: 100vh;
+  width: auto;
   align-items: center;
   justify-content: center;
+  padding: 50px;
 }
 
 .key {
   border: 0.4rem solid black;
   border-radius: 0.5rem;
   margin: 1rem;
-  font-size: 1.5rem;
   padding: 1rem 0.5rem;
   transition: all 0.07s ease;
   width: 10rem;
@@ -47,8 +47,17 @@ kbd {
 }
 
 .sound {
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   color: #ffc600;
+}
+
+h1 {
+  text-align: center;
+  font-size: 5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #ffc600;
+  padding-top: 100px;
 }
